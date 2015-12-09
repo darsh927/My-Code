@@ -8,16 +8,21 @@ public class QuickSortIntoInsertionSort {
     int iCount=0;
     
     public static void main(String[] args) {
+        //Object array
     	QuickSortIntoInsertionSort array = new QuickSortIntoInsertionSort(10000);
-    	
+    	//array will hold 10,000 Random variables
     	for (int j = 0; j < 10000; j++){
     		long n = (int) (java.lang.Math.random() * 100);
     		array.insert(n);
             }
+            //display array, Unsorted
             array.display();
+            //run sort
             array.quickSort();
+            //display array after sort
             array.display();
             }
+            
     public QuickSortIntoInsertionSort(int max) {
         data = new long[max];
         lenght = 0;
@@ -32,7 +37,7 @@ public class QuickSortIntoInsertionSort {
     public void recQS(int left, int right) {
         int size = right - left + 1;
         //>>>>>>>>>>>>>>>>>>>>>>>>>>THIS IS WHERE THE ARRAY IS SWITCHED TO INSERTION SORT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-        if (size < 10) // insertion sort if small
+        if (size < 10) //hard coded so that I can test efficency at different array sizes to switch to insertion sort.
             insertionSort(left, right);
         else // Quick sort if large
         {
@@ -57,6 +62,7 @@ public class QuickSortIntoInsertionSort {
         swap(center, right - 1);
         return data[right - 1];
     }
+    //swap if nessasary
     public void swap(int d1, int d2) {
         long temp = data[d1];
         data[d1] = data[d2];
